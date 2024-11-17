@@ -16,5 +16,5 @@ CREATE TABLE actors (
 	quality_class quality_class,
 	is_active BOOLEAN,
 	current_year INTEGER,
-	PRIMARY KEY (actor, current_year)
+	PRIMARY KEY (actorid, current_year)
 );
