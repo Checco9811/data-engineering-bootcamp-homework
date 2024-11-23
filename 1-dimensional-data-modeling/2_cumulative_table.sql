@@ -2,7 +2,7 @@ INSERT INTO actors (actorid, actor, films, current_year, quality_class, is_activ
 WITH last_year AS (
 	SELECT *
 	FROM actors
-	WHERE current_year = 1973
+	WHERE current_year = 1975
 ),
 this_year AS (
 	SELECT
@@ -14,7 +14,7 @@ this_year AS (
 			ROW(film, year, votes, rating, filmid)::film_stats
 		) AS films
 	FROM actor_films
-	WHERE year = 1974
+	WHERE year = 1976
 	GROUP BY actorid, actor, year
 )
 SELECT
@@ -37,4 +37,3 @@ SELECT
 	, t.year IS NOT NULL as is_active
 FROM last_year l FULL OUTER JOIN this_year t
 ON l.actorid = t.actorid
-
