@@ -86,7 +86,13 @@ new_records AS (
     LEFT JOIN last_year_scd l ON t.actorid=l.actorid
     WHERE l.actorid IS NULL
 )
-SELECT *
+INSERT INTO actors_history_scd (actorid, actor, quality_class, is_active, start_year, end_year, current_year)
+SELECT actorid
+    , actor
+    , quality_class
+    , is_active
+    , start_year
+    , end_year
     , 1976 AS current_season
 FROM (
   SELECT *
